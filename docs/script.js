@@ -27,6 +27,15 @@ document.getElementById("js-btn-convert").addEventListener("click", function () 
     case 'camelCase':
       document.getElementById("output").value = camelCase(source);
       break;
+    case 'underscoredText':
+      document.getElementById("output").value = underscoredText(source);
+      break;
+    case 'removeDuplicateSpace':
+      document.getElementById("output").value = removeDuplicateSpace(source);
+      break;
+    case 'reverseText':
+      document.getElementById("output").value = reverseText(source);
+      break;
   }
 });
 
@@ -87,4 +96,19 @@ function camelCase(str) {
       if (p2) return p2.toUpperCase();
       return p1.toLowerCase();
   });
+}
+
+// UNDERSCORED TEXT
+function underscoredText(str) {
+  return str.split(' ').join('_');
+}
+
+// REMOVE DUPLICATE SPACE
+function removeDuplicateSpace(str) {
+  return str.replace(/\s+/g, " ");
+}
+
+// BACKWARD TEXT
+function reverseText(str) {
+  return str.split(/\s/).reverse().join(" ");
 }
