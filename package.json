@@ -1,0 +1,14 @@
+{
+  "name": "tailwind",
+  "version": "1.0.0",
+  "description": "learning tailwindcss",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwind build src/style.css -o dist/style.css"
+  },
+  "author": "Dave Manuel",
+  "license": "MIT",
+  "dependencies": {
+    "tailwindcss": "^1.0.5"
+  }
+}

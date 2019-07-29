@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Toggle Case</title>
+</head>
+
+<body class="bg-white">
+    <!-- NAVBAR -->
+    <nav class="flex items-center justify-between flex-wrap bg-gray-800 p-6">
+        <div class="flex items-center flex-shrink-0 text-white mr-6">
+            <span class="font-bold text-xl">Toggle Case</span>
+        </div>
+    </nav>
+
+    <div class="p-8 bg-grey-lightest font-sans">
+        <div class="row sm:flex">
+            <div class="col sm:w-1/2">
+                <div class="box border rounded flex flex-col shadow bg-white">
+                    <div class="bg-gray-100 px-3 py-2 border-b">
+                        <h3 class="text-sm text-grey-darker font-medium">Source</h3>
+                    </div>
+                    <textarea class="text-grey-darkest flex-1 p-2 m-1 bg-transparent" rows="10" id="input"></textarea>
+                </div>
+            </div>
+
+            <div class="col mt-8 sm:ml-8 sm:mt-0 sm:w-1/2">
+                <div class="box border rounded flex flex-col shadow bg-white">
+                    <div class="bg-gray-100 px-3 py-2 border-b">
+                        <h3 class="text-sm text-grey-darker font-medium">Output</h3>
+                    </div>
+                    <textarea class="text-grey-darkest flex-1 p-2 m-1 bg-transparent" rows="10" id="output" readonly></textarea>
+                </div>
+            </div>
+
+        </div>
+        <div class="w-full mb-6 mt-3">
+            <label class="block text-sm text-grey-darker font-medium mb-3" for="convert-type">
+              Convert Type
+            </label>
+            <div class="relative">
+              <select id="convert-type" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <option value="titleCase">Title Case</option>
+                <option value="sentenceCase">Sentence Case</option>
+                <option value="upperCase">Upper Case</option>
+                <option value="lowerCase">Lower Case</option>
+                <option value="removeVowels">Remove Vowels</option>
+                <option value="removeConsonants">Remove Consonants</option>
+                <option value="studlyCaps">Studly Caps</option>
+                <option value="camelCase">Camel Case</option>
+              </select>
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+              </div>
+            </div>
+        </div>
+        <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded" id="js-btn-convert">Convert</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
