@@ -48,6 +48,9 @@ document.getElementById("js-btn-convert").addEventListener("click", function () 
     case 'decodeURL':
       document.getElementById("output").value = decodeURL(source);
       break;
+    case 'rot13':
+      document.getElementById("output").value = rot13(source);
+      break;
   }
 });
 
@@ -130,7 +133,6 @@ function reverseText(str) {
   return str.split(/\s/).reverse().join(" ");
 }
 
-
 // SCRAMBLE TEXT
 function scrambleText(str) {
   var newArrayText = [];
@@ -150,10 +152,37 @@ function scrambleText(str) {
   return x.split('').map(v => v).join('');
 }
 
+// ENCODE URL
 function encodeURL(str) {
   return encodeURIComponent(str).replace(/'/g, "%27").replace(/"/g, "%22");
 }
 
+// DECODE URL
 function decodeURL(str) {
   return decodeURIComponent(str.replace(/\+/g, " "));
+}
+
+//ROT13
+function rot( t, u, v ) {
+  return String.fromCharCode( ( ( t - u + v ) % ( v * 2 ) ) + u );
+ }
+
+function rot13(s) {
+  var b = [],
+    c, i = s.length,
+    a = 'a'.charCodeAt(),
+    z = a + 26,
+    A = 'A'.charCodeAt(),
+    Z = A + 26;
+  while (i--) {
+    c = s.charCodeAt(i);
+    if (c >= a && c < z) {
+      b[i] = rot(c, a, 13);
+    } else if (c >= A && c < Z) {
+      b[i] = rot(c, A, 13);
+    } else {
+      b[i] = s.charAt(i);
+    }
+  }
+  return b.join('');
 }
