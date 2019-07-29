@@ -42,6 +42,12 @@ document.getElementById("js-btn-convert").addEventListener("click", function () 
     case 'scrambleText':
       document.getElementById("output").value = scrambleText(source);
       break;
+    case 'encodeURL':
+      document.getElementById("output").value = encodeURL(source);
+      break;
+    case 'decodeURL':
+      document.getElementById("output").value = decodeURL(source);
+      break;
   }
 });
 
@@ -142,4 +148,12 @@ function scrambleText(str) {
   });
   var x = newArrayText.map(v => v.split('').join('')).join(' ');
   return x.split('').map(v => v).join('');
+}
+
+function encodeURL(str) {
+  return encodeURIComponent(str).replace(/'/g, "%27").replace(/"/g, "%22");
+}
+
+function decodeURL(str) {
+  return decodeURIComponent(str.replace(/\+/g, " "));
 }
