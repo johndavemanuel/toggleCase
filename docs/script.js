@@ -36,6 +36,12 @@ document.getElementById("js-btn-convert").addEventListener("click", function () 
     case 'reverseText':
       document.getElementById("output").value = reverseText(source);
       break;
+    case 'backwardText':
+      document.getElementById("output").value = backwardText(source);
+      break;
+    case 'scrambleText':
+      document.getElementById("output").value = scrambleText(source);
+      break;
   }
 });
 
@@ -92,9 +98,9 @@ function studlyCaps(str, seed = Date.now()) {
 
 // CAMEL CASE
 function camelCase(str) {
-  return str.replace(/^([A-Z])|[\s-_]+(\w)/g, function(match, p1, p2, offset) {
-      if (p2) return p2.toUpperCase();
-      return p1.toLowerCase();
+  return str.replace(/^([A-Z])|[\s-_]+(\w)/g, function (match, p1, p2, offset) {
+    if (p2) return p2.toUpperCase();
+    return p1.toLowerCase();
   });
 }
 
@@ -109,6 +115,31 @@ function removeDuplicateSpace(str) {
 }
 
 // BACKWARD TEXT
+function backwardText(str) {
+  return str.split('').reverse().join("");
+}
+
+// REVERSE TEXT
 function reverseText(str) {
   return str.split(/\s/).reverse().join(" ");
+}
+
+
+// SCRAMBLE TEXT
+function scrambleText(str) {
+  var newArrayText = [];
+  var newtext = '';
+  var text = str.replace(/[\r\n]/g, '').split(' ');
+
+  text.map(function (v) {
+    v.split('').map(function () {
+      var hash = Math.floor(Math.random() * v.length);
+      newtext += v[hash];
+      v = v.replace(v.charAt(hash), '');
+    });
+    newArrayText.push(newtext);
+    newtext = '';
+  });
+  var x = newArrayText.map(v => v.split('').join('')).join(' ');
+  return x.split('').map(v => v).join('');
 }
