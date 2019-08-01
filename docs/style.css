@@ -7696,6 +7696,31 @@ video {
   background-color: #63b3ed;
 }
 
+.alert {
+  border-width: 1px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+  border-radius: 0.25rem;
+  position: relative;
+}
+
+.alert--error {
+  background-color: #fff5f5;
+  border-color: #fc8181;
+  color: #c53030;
+}
+
+.alert--title {
+  font-weight: 700;
+}
+
+.alert--message {
+  display: block;
+}
+
 @media (min-width: 640px) {
   .content-wrapper {
     display: flex;
@@ -7708,6 +7733,10 @@ video {
   .panel--output {
     margin-left: 2rem;
     margin-top: 0;
+  }
+
+  .alert--message {
+    display: inline;
   }
 }
 

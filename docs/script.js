@@ -4,6 +4,8 @@ var app = new Vue({
     textInput: '',
     textOutput: '',
     selectedCase: '',
+    isError: false,
+    errorMessage: '',
     textCases: [{
         value: 'titleCase',
         text: 'Title Case'
@@ -76,14 +78,15 @@ var app = new Vue({
     },
     convertText: function () {
       if (this.textInput == '') {
-        alert("Source is empty");
+        this.showError(true, 'Source is empty');
         return;
       }
 
       if (this.selectedCase == '') {
-        alert("Select convert type");
+        this.showError(true, 'Select convert type');
         return;
       }
+      this.showError(false, '');
       switch (this.selectedCase) {
         case 'titleCase':
           this.textOutput = this.titleCase(this.textInput);
@@ -134,6 +137,10 @@ var app = new Vue({
           this.textOutput = this.rot13(this.textInput);
           break;
       }
+    },
+    showError: function (flag, message) {
+      this.errorMessage = message;
+      this.isError = flag;
     },
     titleCase: function (str) {
       str = str.toLowerCase().split(' ');

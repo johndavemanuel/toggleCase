@@ -80,6 +80,23 @@
     @apply bg-blue-400;
 }
 
+.alert {
+    @apply border px-4 py-3 mb-3 rounded relative;
+}
+
+.alert--error {
+    @apply bg-red-100 border-red-400 text-red-700;
+}
+
+.alert--title {
+    @apply font-bold;
+}
+
+.alert--message {
+    @apply block;
+}
+
+
 @screen sm {
     .content-wrapper {
         @apply flex;
@@ -90,5 +107,8 @@
 
     .panel--output {
         @apply ml-8 mt-0;
+    }
+    .alert--message {
+        @apply inline;
     }
 }

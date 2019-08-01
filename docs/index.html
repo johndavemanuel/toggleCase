@@ -17,6 +17,10 @@
             </div>
         </nav>
         <main class="main-container">
+            <div v-if="isError" class="alert alert--error" role="alert">
+                <strong class="alert--title">Error!</strong>
+                <span class="alert--message">{{ errorMessage }}</span>
+            </div>
             <div class="content-wrapper">
                 <div class="panel">
                     <div class="panel-input">
@@ -50,7 +54,7 @@
                         <svg class="select-dropdown-wrapper__select-caret-svg" xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 20 20">
                             <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                            </svg>
+                        </svg>
                     </div>
                 </div>
             </div>
