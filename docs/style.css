@@ -7713,11 +7713,11 @@ video {
   color: #c53030;
 }
 
-.alert--title {
+.alert__title {
   font-weight: 700;
 }
 
-.alert--message {
+.alert__message {
   display: block;
 }
 
@@ -7735,7 +7735,7 @@ video {
     margin-top: 0;
   }
 
-  .alert--message {
+  .alert__message {
     display: inline;
   }
 }
