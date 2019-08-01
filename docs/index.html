@@ -10,63 +10,49 @@
 </head>
 
 <body class="bg-white">
-    <nav class="flex items-center justify-between flex-wrap bg-gray-800 p-6">
-        <div class="flex items-center flex-shrink-0 text-white mr-6">
-            <span class="font-bold text-xl">Toggle Case</span>
-        </div>
-    </nav>
-
-    <div class="p-8 bg-grey-lightest font-sans">
-        <div class="row sm:flex">
-            <div class="col sm:w-1/2">
-                <div class="box border rounded flex flex-col shadow bg-white">
-                    <div class="bg-gray-100 px-3 py-2 border-b">
-                        <h3 class="text-sm text-grey-darker font-medium">Source</h3>
+    <div id="app">
+        <nav class="navbar">
+            <div class="navbar__logo">
+                <span class="navbar__text">Toggle Case</span>
+            </div>
+        </nav>
+        <main class="main-container">
+            <div class="row sm:flex">
+                <div class="col sm:w-1/2">
+                    <div class="panel-input">
+                        <div class="panel-input__header">
+                            <h3 class="text-label text-label--no-margin">Source</h3>
+                        </div>
+                        <textarea v-model="textInput" class="panel-input__textarea" rows="10" id="input"></textarea>
                     </div>
-                    <textarea class="text-grey-darkest flex-1 p-2 m-1 bg-transparent focus:outline-none" rows="10" id="input"></textarea>
+                </div>
+                <div class="col mt-8 sm:ml-8 sm:mt-0 sm:w-1/2">
+                    <div class="panel-input">
+                        <div class="panel-input__header">
+                            <h3 class="text-label text-label--no-margin">Output</h3>
+                        </div>
+                        <textarea v-model="textOutput" class="panel-input__textarea" rows="10" id="output" readonly></textarea>
+                    </div>
+                </div>
+
+            </div>
+            <div class="w-full mb-6 mt-3">
+                <label class="text-label" for="convert-type">
+                Convert Type
+                </label>
+                <div class="select-dropdown-wrapper">
+                    <select v-on:change="getSelectedCase($event)" v-model="selectedCase" id="convert-type" class="select-dropdown-wrapper__select-dropdown">
+                        <option v-for="optionTextCases in textCases" :value="optionTextCases.value">{{ optionTextCases.text }}</option>
+                    </select>
+                    <div class="select-dropdown-wrapper__select-caret">
+                        <svg class="select-dropdown-wrapper__select-caret-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    </div>
                 </div>
             </div>
-
-            <div class="col mt-8 sm:ml-8 sm:mt-0 sm:w-1/2">
-                <div class="box border rounded flex flex-col shadow bg-white">
-                    <div class="bg-gray-100 px-3 py-2 border-b">
-                        <h3 class="text-sm text-grey-darker font-medium">Output</h3>
-                    </div>
-                    <textarea class="text-grey-darkest flex-1 p-2 m-1 bg-transparent focus:outline-none" rows="10" id="output" readonly></textarea>
-                </div>
-            </div>
-
-        </div>
-        <div class="w-full mb-6 mt-3">
-            <label class="block text-sm text-grey-darker font-medium mb-3" for="convert-type">
-              Convert Type
-            </label>
-            <div class="relative">
-              <select id="convert-type" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                <option value="titleCase">Title Case</option>
-                <option value="sentenceCase">Sentence Case</option>
-                <option value="upperCase">Upper Case</option>
-                <option value="lowerCase">Lower Case</option>
-                <option value="removeVowels">Remove Vowels</option>
-                <option value="removeConsonants">Remove Consonants</option>
-                <option value="studlyCaps">Studly Caps</option>
-                <option value="camelCase">Camel Case</option>
-                <option value="underscoredText">Underscored Text</option>
-                <option value="removeDuplicateSpace">Remove Duplicate Space</option>
-                <option value="reverseText">Reverse Text</option>
-                <option value="backwardText">Backward Text</option>
-                <option value="scrambleText">Scramble Text</option>
-                <option value="encodeURL">Encode URL</option>
-                <option value="decodeURL">Decode URL</option>
-                <option value="rot13">ROT13</option>
-              </select>
-              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-              </div>
-            </div>
-        </div>
-        <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded" id="js-btn-convert">Convert</button>
+            <button  v-on:click="convertText" class="btn" id="js-btn-convert">Convert</button>
+        </main>
     </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
     <script src="script.js"></script>
 </body>
 

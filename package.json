@@ -1,14 +1,15 @@
 {
-  "name": "tailwind",
+  "name": "togglecase",
   "version": "1.0.0",
-  "description": "learning tailwindcss",
+  "description": "A collection of mixed case generation and text conversion tools",
   "main": "index.js",
   "scripts": {
-    "build:css": "tailwind build src/style.css -o dist/style.css"
+    "build:css": "tailwind build src/style.css -o docs/style.css"
   },
   "author": "Dave Manuel",
   "license": "MIT",
   "dependencies": {
-    "tailwindcss": "^1.0.5"
+    "tailwindcss": "^1.0.5",
+    "vue": "^2.6.10"
   }
 }

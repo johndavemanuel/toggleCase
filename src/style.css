@@ -4,14 +4,70 @@
 
 @tailwind utilities;
 
+.navbar {
+    @apply flex items-center justify-between flex-wrap bg-gray-800 p-6;
+}
+
+.navbar__logo {
+    @apply flex items-center flex-shrink-0 text-white mr-6;
+}
+
+.navbar__text {
+    @apply font-bold text-xl;
+}
+
+.main-container {
+    @apply p-8 font-sans;
+}
+
+.panel-input {
+    @apply border rounded flex flex-col shadow bg-white;
+}
+
+.panel-input__header {
+    @apply  bg-gray-100 px-3 py-2 border-b
+}
+
+.panel-input__textarea {
+    @apply flex-1 p-2 m-1 bg-transparent;
+}
+
+.panel-input__textarea:focus {
+    @apply outline-none
+}
+
+.select-dropdown-wrapper {
+    @apply relative;
+}
+
+.select-dropdown-wrapper__select-dropdown {
+    @apply block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight cursor-pointer;
+}
+
+.select-dropdown-wrapper__select-dropdown:focus {
+    @apply outline-none bg-white border-gray-500;
+}
+
+.select-dropdown-wrapper__select-caret {
+    @apply pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700;
+}
+
+.select-dropdown-wrapper__select-caret-svg {
+    @apply fill-current h-4 w-4
+}
+
+.text-label {
+    @apply block text-sm font-medium mb-3;
+}
+
+.text-label--no-margin {
+    @apply mb-0;
+}
+
 .btn {
-    @apply font-bold py-2 px-4 rounded;
+    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
 }
 
-.btn-blue {
-    @apply bg-blue-500 text-white;
-}
-
-.btn-blue:hover {
-    @apply bg-blue-400
+.btn:hover {
+    @apply bg-blue-400;
 }
