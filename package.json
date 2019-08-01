@@ -4,8 +4,9 @@
   "description": "A collection of mixed case generation and text conversion tools",
   "main": "index.js",
   "scripts": {
-    "build:css": "tailwind build src/style.css -o docs/style.css",
-    "copy:vue": "cpy node_modules/vue/dist/vue.js docs"
+    "build:css": "tailwind build src/style.css -o docs/css/style.css",
+    "copy:vue": "cpy node_modules/vue/dist/vue.js docs/js",
+    "build": "npm install && npm run build:css && npm run copy:vue"
   },
   "author": "Dave Manuel",
   "license": "MIT",
