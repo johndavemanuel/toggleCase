@@ -20,6 +20,10 @@
     @apply p-8 font-sans;
 }
 
+.panel--output {
+    @apply mt-8;
+}
+
 .panel-input {
     @apply border rounded flex flex-col shadow bg-white;
 }
@@ -37,6 +41,10 @@
 }
 
 .select-dropdown-wrapper {
+    @apply w-full mb-6 mt-3;
+}
+
+.select-dropdown-wrapper__content {
     @apply relative;
 }
 
@@ -70,4 +78,17 @@
 
 .btn:hover {
     @apply bg-blue-400;
+}
+
+@screen sm {
+    .content-wrapper {
+        @apply flex;
+    }
+    .panel {
+        @apply w-1/2;
+    }
+
+    .panel--output {
+        @apply ml-8 mt-0;
+    }
 }

@@ -4,12 +4,16 @@
   "description": "A collection of mixed case generation and text conversion tools",
   "main": "index.js",
   "scripts": {
-    "build:css": "tailwind build src/style.css -o docs/style.css"
+    "build:css": "tailwind build src/style.css -o docs/style.css",
+    "copy:vue": "cpy node_modules/vue/dist/vue.js docs"
   },
   "author": "Dave Manuel",
   "license": "MIT",
   "dependencies": {
     "tailwindcss": "^1.0.5",
     "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "cpy-cli": "^2.0.0"
   }
 }

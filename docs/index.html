@@ -17,8 +17,8 @@
             </div>
         </nav>
         <main class="main-container">
-            <div class="row sm:flex">
-                <div class="col sm:w-1/2">
+            <div class="content-wrapper">
+                <div class="panel">
                     <div class="panel-input">
                         <div class="panel-input__header">
                             <h3 class="text-label text-label--no-margin">Source</h3>
@@ -26,30 +26,35 @@
                         <textarea v-model="textInput" class="panel-input__textarea" rows="10" id="input"></textarea>
                     </div>
                 </div>
-                <div class="col mt-8 sm:ml-8 sm:mt-0 sm:w-1/2">
+                <div class="panel panel--output">
                     <div class="panel-input">
                         <div class="panel-input__header">
                             <h3 class="text-label text-label--no-margin">Output</h3>
                         </div>
-                        <textarea v-model="textOutput" class="panel-input__textarea" rows="10" id="output" readonly></textarea>
+                        <textarea v-model="textOutput" class="panel-input__textarea" rows="10" id="output"
+                            readonly></textarea>
                     </div>
                 </div>
-
             </div>
-            <div class="w-full mb-6 mt-3">
+            <div class="select-dropdown-wrapper">
                 <label class="text-label" for="convert-type">
-                Convert Type
+                    Convert Type
                 </label>
-                <div class="select-dropdown-wrapper">
-                    <select v-on:change="getSelectedCase($event)" v-model="selectedCase" id="convert-type" class="select-dropdown-wrapper__select-dropdown">
-                        <option v-for="optionTextCases in textCases" :value="optionTextCases.value">{{ optionTextCases.text }}</option>
+                <div class="select-dropdown-wrapper__content">
+                    <select v-on:change="getSelectedCase($event)" v-model="selectedCase" id="convert-type"
+                        class="select-dropdown-wrapper__select-dropdown">
+                        <option v-for="optionTextCases in textCases" :value="optionTextCases.value">
+                            {{ optionTextCases.text }}</option>
                     </select>
                     <div class="select-dropdown-wrapper__select-caret">
-                        <svg class="select-dropdown-wrapper__select-caret-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                        <svg class="select-dropdown-wrapper__select-caret-svg" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20">
+                            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                            </svg>
                     </div>
                 </div>
             </div>
-            <button  v-on:click="convertText" class="btn" id="js-btn-convert">Convert</button>
+            <button v-on:click="convertText" class="btn" id="js-btn-convert">Convert</button>
         </main>
     </div>
     <script src="../node_modules/vue/dist/vue.js"></script>
